@@ -4,20 +4,20 @@ A local demonstration project showcasing end-to-end observability using OpenTele
 
 In the future, we will transform this project to a hybrid solution to export telemetry on-prem/cloud.
 
-Local/On-Premises Hosting:
-Docker Compose – Simple single-node setup, ideal for development and small-scale deployments
-Kubernetes (K3s/MicroK8s) – Lightweight Kubernetes distributions for edge or on-prem servers
+**Local/On-Premises Hosting**
+1. **Docker Compose:** Simple single-node setup, ideal for development and small-scale deployments
+2. **Kubernetes (K3s/MicroK8s):** Lightweight Kubernetes distributions for edge or on-prem servers
 
-Cloud Hosting:
+**Cloud Hosting**
 
-Azure Container Apps – Serverless container hosting with built-in scaling
-Azure Kubernetes Service (AKS) – Managed Kubernetes for production workloads
+1. **Azure Container Apps:** Serverless container hosting with built-in scaling
+2. **Azure Kubernetes Service (AKS)** – Managed Kubernetes for production workloads
 
-Managed Observability Alternatives:
+**Managed Observability Alternatives**
 
-Grafana Cloud – Fully managed Loki, Tempo, Prometheus, and Grafana
-Azure Monitor + Application Insights – Native Azure observability with OpenTelemetry support
-Datadog / New Relic / Dynatrace – Third-party APM platforms with OTLP ingestion (all of them are pricey!)
+1. **Grafana Cloud:** Fully managed Loki, Tempo, Prometheus, and Grafana
+2. **Azure Monitor + Application Insights:** Native Azure observability with OpenTelemetry support. However, this might lock us with a vendor which doesn't make it a viable option.
+3. **Datadog / New Relic / Dynatrace:** Third-party APM platforms with OTLP ingestion (all of them are pricey!)
 
 ## Architecture
 
@@ -96,6 +96,16 @@ Datadog / New Relic / Dynatrace – Third-party APM platforms with OTLP ingestio
 
    Default Grafana credentials: `admin` / `admin`
 
+   Make sure all the services are up and running by using the following command:
+   ```bash
+   docker ps
+   ```
+
+4. Shutdown services:
+    ```bash
+   docker-compose down -v
+   ```
+
 ## Project Structure
 
 ```
@@ -130,11 +140,11 @@ The collector is configured to receive telemetry data via OTLP and export to the
 - Metrics → Prometheus (in Prod we will use Mimir with a hybrid approach)
 
 Please refer to the following documentation for more info about the OSS observability stack:
-OpenTelemetry: https://opentelemetry.io/docs/
-Grafana: https://grafana.com/docs/
-Tempo: https://grafana.com/docs/tempo/latest/
-Loki: https://grafana.com/docs/loki/latest/
-Prometheus: https://prometheus.io/docs/introduction/overview/
+- **OpenTelemetry**: https://opentelemetry.io/docs/
+- **Grafana**: https://grafana.com/docs/
+- **Tempo**: https://grafana.com/docs/tempo/latest/
+- **Loki**: https://grafana.com/docs/loki/latest/
+- **Prometheus**: https://prometheus.io/docs/introduction/overview/
 
 We can use this stack without a commercial license :D
 
